@@ -8,7 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import application.Admin_HomePage_Controller;
 import application.HomePage_Controller;
+import application.HomePage_Mybugs_Controller;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,19 +21,38 @@ import javafx.fxml.FXMLLoader;
 
 public class DBUtils {
 	
-	public static void changeScene(ActionEvent event, String fxmlfile, String title, String username) {
-		
+	public static void changeScene(ActionEvent event, String fxmlfile, String title, String useremail) {
+
 		Parent root = null;
+		FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlfile));
 		
-		if(username != null) {
+		if(useremail != null) {
+			System.out.println("Useremail: "+useremail);
 			try {
-				FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlfile));
-				root = loader.load();
-				HomePage_Controller homepagecontroller = loader.getController();
-				homepagecontroller.setUserInfo(username);
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
+				if(useremail.equals("admin@gmail.com")) {
+					root = loader.load();
+					Admin_HomePage_Controller adminhomepagecontroller = loader.getController();
+					adminhomepagecontroller.setUserInfo(useremail);
+				}
+				
+				else if(fxmlfile.equals("/FXML/HomePage_Mybugs.fxml")) {
+					root = loader.load();
+					HomePage_Mybugs_Controller homepagemybugs_controller = loader.getController();
+					homepagemybugs_controller.setUserInfo(useremail);
+				}
+				
+				else {
+					root = loader.load();
+					HomePage_Controller homepagecontroller = loader.getController();
+					homepagecontroller.setUserInfo(useremail);
+				}
+
+			} catch(ClassCastException e) {
+				
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 		}
 		
 		else {
@@ -57,14 +78,14 @@ public class DBUtils {
     	try {
     		
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bug-quest", "root", "Realmadrid14");
-			psCheckUserExists = connection.prepareStatement("Select * from users WHERE username = ?");
-			psCheckUserExists.setString(1, username);
+			psCheckUserExists = connection.prepareStatement("Select * from users WHERE useremail = ?");
+			psCheckUserExists.setString(1, useremail);
 			resultset = psCheckUserExists.executeQuery();
 			
 			if(resultset.isBeforeFirst()) {
 				System.out.println("User already exists!");
 				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("User already exists! Choose another username");
+				alert.setContentText("User already exists! Choose another User-email");
 				alert.show();
 			}
 			
@@ -75,7 +96,7 @@ public class DBUtils {
 				psInsert.setString(3, password);
 				psInsert.executeUpdate();
 				
-				changeScene(event, "/FXML/HomePage.fxml", "Welcome to Bug-Overflow!", username);
+				changeScene(event, "/FXML/HomePage.fxml", "Welcome to Bug-Overflow!", useremail);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -109,7 +130,7 @@ public class DBUtils {
 					e.printStackTrace();
 				}
 			}
-		}	
+		}
 		
 	}
 	
@@ -128,16 +149,21 @@ public class DBUtils {
 			if(!resultset.isBeforeFirst()) {
 				System.out.println("Useremail not found in database!");
 				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("User does not exist by this email!");
+				alert.setContentText("Invalid user e-mail! Re-enter correct information");
 				alert.show();
 			}
 			else {
 				while (resultset.next()) {
 					String retrivedPassword = resultset.getString("password");
-					String retrivedUsername = resultset.getString("username");
 
 					if(retrivedPassword.equals(password)) {
-						changeScene(event, "/FXML/HomePage.fxml", "Welcome to Bug-Overflow!", retrivedUsername);
+						if(useremail.equals("admin@gmail.com")) {
+							changeScene(event, "/FXML/Admin_HomePage.fxml", "Bug-Overflow Admin Dashboard", useremail);
+						}
+						
+						else {
+							changeScene(event, "/FXML/HomePage.fxml", "Welcome to Bug-Overflow!", useremail);
+						}
 					}
 					
 					else {

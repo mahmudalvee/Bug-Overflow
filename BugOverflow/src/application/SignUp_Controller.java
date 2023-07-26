@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class SignUp_Controller implements Initializable{
@@ -27,7 +28,11 @@ public class SignUp_Controller implements Initializable{
 	private TextField tf_useremail;
 	
 	@FXML
-	private TextField tf_password;
+	private PasswordField tf_password1;
+	
+	private static final String EMAIL_PATTERN = 
+    	    "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+    	    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
 	
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -39,8 +44,25 @@ public class SignUp_Controller implements Initializable{
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
 				
-				if(!tf_username.getText().trim().isEmpty() && !tf_useremail.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
-					DBUtils.signupUser(event, tf_username.getText(), tf_useremail.getText(), tf_password.getText());
+				if(!tf_username.getText().trim().isEmpty() && !tf_useremail.getText().trim().isEmpty() && !tf_password1.getText().trim().isEmpty()) {
+					
+					if(!tf_useremail.getText().matches(EMAIL_PATTERN)) {
+			    		Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setHeaderText("Invalid User-email");
+						alert.setContentText("Enter a valid useremail");
+						alert.showAndWait();
+			    	}
+			    	
+			    	else if(tf_password1.getText().length() < 5) {
+			    		Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setHeaderText("Invalid User Password");
+						alert.setContentText("Password length must be 5 (minimum)");
+						alert.showAndWait();
+			    	}
+			    	else {
+						DBUtils.signupUser(event, tf_username.getText(), tf_useremail.getText(), tf_password1.getText());
+			    	}
+					
 				}
 				else {
 					System.out.println("Please fill up all information correctly!");
