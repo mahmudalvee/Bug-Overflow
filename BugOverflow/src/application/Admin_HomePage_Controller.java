@@ -75,7 +75,7 @@ public class Admin_HomePage_Controller implements Initializable{
     	ObservableList<Bug> bugs = FXCollections.observableArrayList();
     	
     	try {
-			ps = connection.prepareStatement("select useremail, bug, debug from bugs");
+			ps = connection.prepareStatement("select useremail, bug, debug from bugs ORDER BY id DESC");
 			ResultSet rs = ps.executeQuery();
 	    	
 	    	while(rs.next())

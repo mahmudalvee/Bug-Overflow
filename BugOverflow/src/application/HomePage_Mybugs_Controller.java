@@ -93,7 +93,7 @@ public class HomePage_Mybugs_Controller implements Initializable{
     	ObservableList<Bug> bugs = FXCollections.observableArrayList();
     	
     	try {
-    		ps = connection.prepareStatement("select useremail, bug, debug from bugs WHERE useremail = ?");
+    		ps = connection.prepareStatement("select useremail, bug, debug from bugs WHERE useremail = ? ORDER BY id DESC");
 			ps.setString(1, getUseremail);
 			ResultSet rs = ps.executeQuery();
 	    	
