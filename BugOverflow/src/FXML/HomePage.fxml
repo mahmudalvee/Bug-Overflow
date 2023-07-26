@@ -42,9 +42,9 @@
       </AnchorPane>
       <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
         <items>
-          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="75.0">
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="75.0" style="-fx-background-color: orange;">
                <children>
-                  <Button fx:id="bugs_btn" layoutX="-2.0" layoutY="48.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" style="-fx-background-color: #FFEA00;" text="All Bugs">
+                  <Button fx:id="bugs_btn" layoutX="-2.0" layoutY="57.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" style="-fx-background-color: #FFEA00;" text="All Bugs" underline="true">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="15.0" />
                      </font>
@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="mybugs_btn" layoutX="-2.0" layoutY="96.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="79.0" text="My Bugs">
+                  <Button fx:id="mybugs_btn" layoutX="-2.0" layoutY="87.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="79.0" text="My Bugs">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="15.0" />
                      </font>
@@ -60,6 +60,19 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Button fx:id="about_btn" layoutX="-1.0" layoutY="120.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" text="About Us">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="7.0" layoutY="25.0" text="Menu" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="347.0" prefWidth="441.0" style="-fx-background-color: #FFEA00;">
                <cursor>

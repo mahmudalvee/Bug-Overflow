@@ -1,8 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
-
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AboutUs_Controller">
+   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="598.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label fx:id="lebel_welcome" layoutX="64.0" layoutY="8.0" prefHeight="29.0" prefWidth="359.0" underline="true">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="21.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logo" fitHeight="45.0" fitWidth="48.0" layoutX="539.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/bug_overflow.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btn_logout" layoutX="445.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #FF2400;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fx:id="user_logo" fitHeight="45.0" fitWidth="48.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/user.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+         <items>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="75.0" style="-fx-background-color: orange;">
+               <children>
+                  <Button fx:id="bugs_btn" layoutX="-1.0" layoutY="56.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" text="All Bugs">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="mybugs_btn" layoutX="-1.0" layoutY="84.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="79.0" text="My Bugs">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="about_btn" layoutX="-1.0" layoutY="119.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" style="-fx-background-color: #FFEA00;" text="About Us" underline="true" wrapText="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="7.0" layoutY="25.0" text="Menu" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="347.0" prefWidth="441.0" style="-fx-background-color: #FFEA00;">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <children>
+                  <Label layoutX="164.0" layoutY="41.0" prefHeight="24.0" prefWidth="189.0" style="-fx-background-color: white;" text="About Bug-Overflow" textAlignment="JUSTIFY" textFill="#ff2400" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="172.0" layoutY="330.0" text="copyright @BugOverflow2023.com">
+                     <font>
+                        <Font name="Gill Sans MT" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="logo1" fitHeight="39.0" fitWidth="45.0" layoutX="239.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Photos/aboutus.png" />
+                     </image>
+                  </ImageView>
+                  <TextArea layoutX="1.0" layoutY="64.0" prefHeight="263.0" prefWidth="517.0" style="-fx-background-color: #FFEA00;" text="Welcome to Bug-Overflow! It is a short platform for managing bugs, questions, &amp; &#10;answers in a user-friendly environment. Bug-Overflow is a JavaFX project &#10;integrated with a MySQL database to ensure efficient bug tracking and &#10;resolution. This project developed by Fahmeed Mahmud Alvee.&#10;&#10;Key Features:&#10;-&gt; User-Friendly Bug Posting: Users can easily post new bugs and questions to be &#10;addressed by the admin. With a simple and intuitive interface, users can &#10;provide detailed information about the encountered issues.&#10;&#10;-&gt; Personalized Bug Viewing: Users have exclusive access to view the bugs and &#10;questions they have added. This personalized approach ensures they can stay &#10;updated on the status of their reported issues.&#10;&#10;-&gt; Admin Debugging: Our platform empowers the admin to add clear and &#10;concise debugs and answers to the reported bugs.&#10;&#10;-&gt; Bug Management: Admins have the authority to delete any bug or question &#10;from the system, ensuring that outdated or irrelevant issues are swiftly removed.&#10;&#10;-&gt; Update Capability: Admins can modify and update debugs and answers &#10;whenever necessary, providing accurate information and ensuring a reliable &#10;knowledge base.&#10;&#10;-&gt; User Management: Administrators can create and delete user accounts, &#10;maintaining a secure and controlled environment.">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </items>
+</SplitPane>

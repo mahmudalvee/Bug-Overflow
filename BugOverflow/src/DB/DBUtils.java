@@ -11,6 +11,7 @@ import java.sql.Statement;
 import application.Admin_HomePage_Controller;
 import application.HomePage_Controller;
 import application.HomePage_Mybugs_Controller;
+import application.AboutUs_Controller;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -39,6 +40,12 @@ public class DBUtils {
 					root = loader.load();
 					HomePage_Mybugs_Controller homepagemybugs_controller = loader.getController();
 					homepagemybugs_controller.setUserInfo(useremail);
+				}
+				
+				else if(fxmlfile.equals("/FXML/AboutUsPage.fxml")) {
+					root = loader.load();
+					AboutUs_Controller aboutus_controller = loader.getController();
+					aboutus_controller.setUserInfo(useremail);
 				}
 				
 				else {

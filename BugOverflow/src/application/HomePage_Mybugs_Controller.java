@@ -55,6 +55,9 @@ public class HomePage_Mybugs_Controller implements Initializable{
 
     @FXML
     private Button mybugs_btn;
+    
+    @FXML
+    private Button about_btn;
 
     @FXML
     private TableView<Bug> admin_bugs_table;
@@ -290,6 +293,15 @@ public class HomePage_Mybugs_Controller implements Initializable{
 				// TODO Auto-generated method stub
 				
 				DBUtils.changeScene(event, "/FXML/HomePage.fxml", "All Bugs", getUseremail);
+			}
+			
+		});
+		
+		about_btn.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				
+				DBUtils.changeScene(event, "/FXML/AboutUsPage.fxml", "About Bug-Overflow", getUseremail);
 			}
 			
 		});

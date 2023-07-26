@@ -69,7 +69,7 @@
                         <TableColumn fx:id="username_col" prefWidth="257.66668701171875" text="User Name" />
                      </columns>
                   </TableView>
-                  <Label layoutX="222.0" layoutY="2.0" prefHeight="14.0" prefWidth="75.0" text="All Bugs" textAlignment="JUSTIFY" underline="true">
+                  <Label layoutX="227.0" layoutY="2.0" prefHeight="24.0" prefWidth="86.0" text="All Users" textAlignment="JUSTIFY" underline="true">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="20.0" />
                      </font>
