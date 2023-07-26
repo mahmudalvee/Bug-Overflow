@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePage_Mybugs_Controller">
+  <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="598.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label fx:id="lebel_welcome" layoutX="64.0" layoutY="8.0" prefHeight="29.0" prefWidth="353.0">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="21.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logo" fitHeight="45.0" fitWidth="48.0" layoutX="539.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/bug_overflow.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btn_logout" layoutX="445.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #FF2400;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fx:id="user_logo" fitHeight="45.0" fitWidth="48.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/user.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+        <items>
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="75.0">
+               <children>
+                  <Button fx:id="bugs_btn" layoutX="-2.0" layoutY="48.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" text="All Bugs">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="mybugs_btn" layoutX="-2.0" layoutY="96.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: #FFEA00;" text="My Bugs">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children></AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="347.0" prefWidth="441.0" style="-fx-background-color: #FFEA00;">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <children>
+                  <TableView fx:id="admin_bugs_table" layoutX="1.0" layoutY="26.0" prefHeight="173.0" prefWidth="515.0">
+                     <columns>
+                        <TableColumn fx:id="useremail_col" prefWidth="94.0" text="User Email" />
+                        <TableColumn fx:id="bug_col" prefWidth="201.0" text="Bug/Quesion" />
+                        <TableColumn fx:id="debug_col" minWidth="0.0" prefWidth="219.0" text="DeBug/Answer" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="211.0" prefHeight="24.0" prefWidth="95.0" text="My Bug(s)" textAlignment="JUSTIFY" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="15.0" layoutY="234.0" prefHeight="111.0" prefWidth="490.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="17.0" text="Bug/Question:" textFill="WHITE">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txt_bug" layoutX="106.0" layoutY="14.0" prefHeight="86.0" prefWidth="370.0" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="btn_update" layoutX="194.0" layoutY="202.0" mnemonicParsing="false" onAction="#Update" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: purple;" text="Update Bug" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btn_delete" layoutX="329.0" layoutY="202.0" mnemonicParsing="false" onAction="#Delete" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: red;" text="Delete Bug" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btn_add" layoutX="57.0" layoutY="202.0" mnemonicParsing="false" onAction="#Add" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: white;" text="Add New Bug">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </items>
+</SplitPane>

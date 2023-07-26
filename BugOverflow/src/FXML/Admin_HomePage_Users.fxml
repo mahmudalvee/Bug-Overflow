@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Admin_HomePage_Users_Controller">
+   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="598.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label fx:id="lebel_welcome" layoutX="14.0" layoutY="8.0" prefHeight="29.0" prefWidth="214.0" text="Admin Dashboard" underline="true">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="21.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logo" fitHeight="45.0" fitWidth="48.0" layoutX="539.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/bug_overflow.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btn_logout" layoutX="445.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #FF2400;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+        <items>
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="75.0">
+               <children>
+                  <Button fx:id="bugs_btn" layoutX="7.0" layoutY="45.0" mnemonicParsing="false" text="Bugs">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="users_btn" layoutX="6.0" layoutY="101.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="63.0" style="-fx-background-color: #FFEA00;" text="Users">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children></AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="347.0" prefWidth="441.0" style="-fx-background-color: #FFEA00;">
+               <cursor>
+                  <Cursor fx:constant="DISAPPEAR" />
+               </cursor>
+               <children>
+                  <TableView fx:id="admin_users_table" layoutX="1.0" layoutY="26.0" prefHeight="173.0" prefWidth="515.0">
+                     <columns>
+                        <TableColumn fx:id="useremail_col" prefWidth="257.33331298828125" text="User Email" />
+                        <TableColumn fx:id="username_col" prefWidth="257.66668701171875" text="User Name" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="222.0" layoutY="2.0" prefHeight="14.0" prefWidth="75.0" text="All Bugs" textAlignment="JUSTIFY" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="15.0" layoutY="234.0" prefHeight="111.0" prefWidth="490.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label layoutX="94.0" layoutY="15.0" prefHeight="16.0" prefWidth="100.0" text="New User-email" textFill="WHITE">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="93.0" layoutY="48.0" prefHeight="16.0" prefWidth="100.0" text="New User Name" textFill="WHITE">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="134.0" layoutY="81.0" text="Password" textFill="WHITE">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txt_useremail" layoutX="209.0" layoutY="11.0" prefHeight="25.0" prefWidth="214.0" />
+                        <TextField fx:id="txt_username" layoutX="209.0" layoutY="44.0" prefHeight="25.0" prefWidth="214.0" />
+                        <TextField fx:id="txt_password" layoutX="209.0" layoutY="77.0" prefHeight="25.0" prefWidth="214.0" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="btn_delete" layoutX="270.0" layoutY="202.0" mnemonicParsing="false" onAction="#Delete" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: red;" text="Delete User" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btn_add" layoutX="121.0" layoutY="202.0" mnemonicParsing="false" onAction="#Add" prefHeight="0.0" prefWidth="129.0" style="-fx-background-color: white;" text="Add New User">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </items>
+</SplitPane>
