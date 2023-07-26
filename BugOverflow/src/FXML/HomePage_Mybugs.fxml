@@ -17,7 +17,7 @@
   <items>
       <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="598.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label fx:id="lebel_welcome" layoutX="64.0" layoutY="8.0" prefHeight="29.0" prefWidth="353.0" wrapText="true">
+            <Label fx:id="lebel_welcome" layoutX="64.0" layoutY="8.0" prefHeight="29.0" prefWidth="353.0" underline="true" wrapText="true">
                <font>
                   <Font name="Berlin Sans FB Bold" size="21.0" />
                </font>
