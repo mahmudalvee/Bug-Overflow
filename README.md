@@ -2,6 +2,7 @@
 
 It is a short platform for managing bugs, questions, & answers in a user-friendly environment. Bug-Overflow is a JavaFX project 
 integrated with MySQL database followed by Object-Oriented-Programming. This project was developed by Fahmeed Mahmud Alvee.
+Project Demonstration: https://youtu.be/7uRXsQOxB24
 
 ## Key Features:
 - User-Friendly Bug Posting: Users can easily post new bugs and questions to be addressed by the admin. With a simple and intuitive interface, users can provide detailed information about the encountered issues.
